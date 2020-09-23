@@ -1,0 +1,153 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>HyperLink Control Readme</title>
+</head>
+
+<body>
+
+<p align="center"><b><font face="Arial" size="4">HyperLink Control</font></b></p>
+<p><font face="Arial" size="2">&nbsp;&nbsp;&nbsp; HyperLink control facilitates
+you to add web-like looking HyperLinks to your VB forms easily. It gives very
+nice &quot;Flat&quot; look, which adds a different style to your application.
+For example, in About box, you can add a hyperlink to your Website or email
+address, just as available on any other web page... HyperLink control will be a
+better choice than standard CommandButton.</font></p>
+<p><font face="Arial" size="2">&nbsp;&nbsp;&nbsp; A really useful facility
+provided by this control is that it manages to open the target by itself, unlike
+label, it is not only a display item, but it also provides OpenTarget method,
+which opens the target <u>Program</u>, <u>Document</u>, <u>Web URL</u>, or <u>Email
+address</u> in its default associated program using ShellExecute API call.</font></p>
+<p><u><b><font face="Arial" size="2">More Features:</font></b></u></p>
+<ul>
+  <li><font face="Arial" size="2">&nbsp;&nbsp;&nbsp; Extended mouse events like
+    MouseHover and MouseLeave makes it more useful.</font></li>
+  <li><font face="Arial" size="2">&nbsp;&nbsp;&nbsp; Looks almost like any Web
+    hyperlink, gives appearance facilities like hover font colors, Underline on
+    mouse hover, etc.</font></li>
+  <li><font face="Arial" size="2">&nbsp;&nbsp;&nbsp; Provides necessary hand
+    mouse pointers for available and not available link.</font></li>
+</ul>
+<hr>
+<p><b><a name="Author"><font face="Arial" size="2"></font></a><font face="Arial" size="2">Programmer's
+Notes</font></b></p>
+<p><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;<b> </b>The author of this
+control is Shekhar Somani. I live in India, and my email address is given below:</font></p>
+<p><font face="Arial" size="2">&nbsp;&nbsp;&nbsp; <a href="mailto:Shekhar_Extreme@yahoo.com">Shekhar_Extreme@yahoo.com</a>
+or</font></p>
+<p><font face="Arial" size="2">&nbsp;&nbsp;&nbsp; <a href="mailto:Shekhar_d_s@yahoo.com">Shekhar_d_s@yahoo.com</a></font></p>
+<p><font face="Arial" size="2">&nbsp;&nbsp;&nbsp; If you find any bugs or
+problems, or you have any comments, suggestions, fixes, or anything to say about
+my work, please do mail me, I will really appriciate.</font></p>
+<p><font face="Arial" size="2">&nbsp;&nbsp;&nbsp; One problem that I am working
+on is the ToolTip, the control is not giving tooltip properly, this seems
+because my control is not using its own property for this, it relies upon VB's
+extender which automatically provides tooltip property to every usercontrol, but
+since I am using API functions like SetCapture and ReleaseCapture to provide
+extended mouse events, VB's extender seems failing. So this needs to be worked,
+the application of this control makes it almost compulsory that it should have
+ToolTip support. If anyone can throw some light on this, please do.&nbsp;</font></p>
+<p><font face="Arial" size="2">&nbsp;&nbsp;&nbsp; This control is a Freeware OpenSource, use it anywhere you like. It is free<br>
+for non-commercial uses. But any change in source, or distribution in public<br>
+requires author's prior permission.</font></p>
+<hr>
+<p align="center"><b><a name="Reference"><font face="Arial" size="2"></font></a><font face="Arial" size="2">HyperLink
+Control Reference</font></b></p>
+<p><b><font face="Arial" size="2">Properties</font></b></p>
+<ul>
+  <li><a href="#Property_Target"><font face="Arial" size="2">Target</font></a></li>
+  <li><a href="#Property_LinkAvail"><font face="Arial" size="2">LinkAvailable</font></a></li>
+  <li><a href="#Property_Underline"><font face="Arial" size="2">UnderlineOnHover</font></a></li>
+  <li><a href="#Property_HoverColor"><font face="Arial" size="2">HoverForeColor</font></a></li>
+  <li><a href="#Property_HoverColor"><font face="Arial" size="2">UseHoverForeColor</font></a></li>
+</ul>
+<p><b><font face="Arial" size="2">Methods</font></b></p>
+<ul>
+  <li><a href="#Method_OpenTarget"><font face="Arial" size="2">OpenTarget</font></a><font face="Arial" size="2">&nbsp;</font></li>
+</ul>
+<p><b><a href="#Author"><font face="Arial" size="2">Programmer's Notes</font></a></b></p>
+<hr>
+<p><b><a name="Property_Target"><font face="Arial" size="2"></font></a><font face="Arial" size="2">&quot;Target&quot;
+Property (String)</font></b></p>
+<p><font face="Arial" size="2">&nbsp;&nbsp;&nbsp; Specifies the path of the
+target of the hyperlink, this can be any of these:</font></p>
+<ul>
+  <li><font face="Arial" size="2">An application (*.exe *.com *.bat etc.)</font></li>
+  <li><font face="Arial" size="2">A Document (*.*) - Uses the default associated
+    application to open</font></li>
+  <li><font face="Arial" size="2">Internet URL (Tries to open in default
+    program, so it needs IE4 update)</font></li>
+  <li><font face="Arial" size="2">Email Address (Tries to open in default
+    program, so it needs IE4 update)</font></li>
+</ul>
+<p><font face="Arial" size="2">&nbsp;&nbsp;&nbsp; <u>Note:</u> To open the
+target, OpenTarget method can be called anytime, but this property must be set
+to something before calling the OpenTarget method, otherwise the control throws
+an error.</font></p>
+<p><a href="#Reference"><font face="Arial" size="2">Back to Reference</font></a></p>
+<hr>
+<p><b><a name="Property_LinkAvail"><font face="Arial" size="2"></font></a><font face="Arial" size="2">LinkAvailable
+(Boolean)</font></b></p>
+<p><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;<b> </b>This Boolean property
+acts as simple flag which can be set to True/False by the programmer to indicate
+the control that the link is been disabled temporarily.</font></p>
+<p><font face="Arial" size="2">&nbsp;&nbsp;&nbsp; The noticeable change that
+this property makes is that once set to False, the control shows the &quot;Not
+Available&quot; mouse icon and any call to OpenTarget method raises an
+error.&nbsp;</font></p>
+<p><a href="#Reference"><font face="Arial" size="2">Back to Reference</font></a></p>
+<hr>
+<p><b><a name="Property_Underline"><font face="Arial" size="2"></font></a><font face="Arial" size="2">UnderlineOnHover
+(Boolean)</font></b></p>
+<p><font face="Arial" size="2">&nbsp;&nbsp;&nbsp; If set to True, the control
+underlines the caption text as soon as the mouse moves over the control, and
+resets it as the mouse leaves the control area. This property makes it look like
+a real hyperlink. Default setting for this property is True.</font></p>
+<p><a href="#Reference"><font face="Arial" size="2">Back to Reference</font></a></p>
+<hr>
+<p><b><a name="Property_HoverColor"><font face="Arial" size="2"></font></a><font face="Arial" size="2">HoverForeColor
+(Color)&nbsp;&nbsp; &amp;</font></b></p>
+<p><b><font face="Arial" size="2">UseHoverForeColor (Boolean)</font></b></p>
+<p><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;<b> </b>If UseHoverForeColor is
+set to True, the control changes the caption color to the color set in
+HoverForeColor property, which is reset when mouse leaves the control
+area.&nbsp;</font></p>
+<p><font face="Arial" size="2">&nbsp;&nbsp;&nbsp; Default Values:</font></p>
+<ul>
+  <li><font face="Arial" size="2">HoverForeColor = vbBlue</font></li>
+  <li><font face="Arial" size="2">UseHoverForeColor = True&nbsp;</font></li>
+</ul>
+<p><a href="#Reference"><font face="Arial" size="2">Back to Reference</font></a></p>
+<hr>
+<p><b><a name="Method_OpenTarget"><font face="Arial" size="2"></font></a><font face="Arial" size="2">OpenTarget
+Method</font></b></p>
+<p><font face="Arial" size="2">&nbsp;&nbsp;&nbsp; Parameters: (All Optional)</font></p>
+<ul>
+  <li>
+    <p style="line-height: 100%"><font face="Arial" size="2">[OwnerHWnd]&nbsp; Long</font></li>
+  <li>
+    <p style="line-height: 100%"><font face="Arial" size="2">[WindowStyle]&nbsp;
+    APIWindowStyleConstants</font></li>
+  <li>
+    <p style="line-height: 100%"><font face="Arial" size="2">[StartupDirectory]&nbsp;
+    String</font></li>
+</ul>
+<p><font face="Arial" size="2">&nbsp;&nbsp;&nbsp; Returns: Long value returned
+by ShellExecute API call</font></p>
+<p><font face="Arial" size="2">&nbsp;&nbsp;&nbsp; This method opens the target
+of the hyperlink by calling the ShellExecute API function and returns
+appropriate value. It has three optional parameters, which provide better
+control over the application called.</font></p>
+<p><font face="Arial" size="2">&nbsp;&nbsp;&nbsp; <b><u>Note:</u></b> This
+method fails and raises an error if LinkAvailable property is set to False, or
+Target property is not set to anything.</font></p>
+<p><a href="#Reference"><font face="Arial" size="2">Back to Reference</font></a></p>
+<hr>
+
+</body>
+
+</html>
